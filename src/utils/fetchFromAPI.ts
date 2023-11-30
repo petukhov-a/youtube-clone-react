@@ -4,19 +4,18 @@ export type ApiItem = {
   id: any;
   snippet: any;
   kind: string;
+  statistics?: any;
 }
 
 type ApiData = {
-  data: {
-    items: ApiItem[];
-    nextPageToken: string;
-    pageInfo: {};
-    regionCode: string;
-    kind: string;
-  }
+  items: ApiItem[];
+  nextPageToken: string;
+  pageInfo: {};
+  regionCode: string;
+  kind: string;
 }
 
-const BASE_URL = 'https://youtube-v31.p.rapidapi.com';
+const BASE_URL = "https://youtube-v31.p.rapidapi.com";
 
 const options = {
   url: BASE_URL,
@@ -37,7 +36,7 @@ const options = {
 // }
 
 export const fetchFromAPI = async (url: string) => {
-  const { data } = await axios.get(`${BASE_URL}/${url}`, options) as ApiData;
+  const { data } = await axios.get<ApiData>(`${BASE_URL}/${url}`, options);
 
   return data;
 }
