@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { RootChannelAPI } from '../apiTypes/channelTypes';
+import { RootSearchAPI } from '../apiTypes/searchTypes';
 
 export type ApiItem = {
   id: any;

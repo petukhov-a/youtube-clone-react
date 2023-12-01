@@ -8,9 +8,10 @@ import { demoProfilePicture } from '../utils/constants';
 
 type ChannelCardProps = {
   channelDetail: ApiItem;
+  marginTop?: string;
 }
 
-const ChannelCard: FC<ChannelCardProps> = ({ channelDetail }) => {
+const ChannelCard: FC<ChannelCardProps> = ({ channelDetail, marginTop }) => {
 
   return (
     <Box
@@ -22,7 +23,8 @@ const ChannelCard: FC<ChannelCardProps> = ({ channelDetail }) => {
         alignContent: 'center',
         width: { xs: '356px', md: '320px' },
         height: '326px',
-        margin: 'auto'
+        margin: 'auto',
+        marginTop,
       }}>
         <Link to={`/channel/${channelDetail?.id?.channelId}`}>
           <CardContent sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center', color: '#fff' }}>
