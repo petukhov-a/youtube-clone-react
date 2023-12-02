@@ -14,12 +14,14 @@ const VideoCard: FC<VideoCardProps> = ({ video }) => {
   const { id: { videoId }, snippet } = video;
 
   return (
-    <Card sx={{ width: { md: '320px', xs: '100%' }, boxShadow: '0', borderRadius: 'none' }}>
+    <Card sx={{ width: { xs: '100%', sm: '358px', md: '320px' }, boxShadow: '0', borderRadius: 'none' }}>
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
         <CardMedia
           image={snippet?.thumbnails?.high?.url as string}
           alt={snippet?.title}
-          sx={{ width: 358, height: 180 }}
+          sx={{ width: {
+            xs: '100%', sm: '358px', md: '320px'
+          }, height: 180 }}
           component='img'
         />
       </Link>
